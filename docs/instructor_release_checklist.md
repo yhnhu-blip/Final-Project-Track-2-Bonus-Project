@@ -17,7 +17,7 @@ The handout should explain:
 
 - proposal-based final project route
 - Go2 oval-track tournament route
-- combined route for bonus points
+- combined route for bonus
 - tournament ranking by full-lap `finish_time` or incomplete-run
   `valid_distance_m`
 - fixed high-level controller input/output contract

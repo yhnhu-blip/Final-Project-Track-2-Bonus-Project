@@ -27,7 +27,7 @@ Students may choose one of three routes:
 - Go2 oval-track tournament: submit a low-level checkpoint plus high-level
   controller and compete on the shared 200 m track benchmark.
 - Both: complete a proposal-based final project and also enter the tournament
-  for bonus points.
+  for bonus.
 
 Tournament ranking is based first on completing a full lap without leaving the
 track. Completed laps are ranked by `finish_time`; incomplete runs are ranked

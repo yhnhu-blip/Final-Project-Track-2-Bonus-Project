@@ -7,7 +7,7 @@ may use this repository in one of three ways:
 
 1. Proposal-based final project.
 2. Go2 oval-track tournament.
-3. Both, for bonus points.
+3. Both, for bonus.
 
 The tournament route is designed for students who want a concrete robotics
 benchmark with a public leaderboard. The proposal route is designed for
@@ -80,9 +80,8 @@ Suggested tournament score distribution:
 ## 4. Option C: Do Both
 
 Teams may complete a proposal-based final project and also submit a tournament
-entry. This is the most ambitious route and is eligible for bonus points. The
-default release assumption is up to 10 bonus points, with the exact cap and
-application left to the instructor.
+entry. This is the most ambitious route and is eligible for bonus. The exact
+bonus policy will be announced by the instructor.
 
 For this route, submit both deliverable sets:
 

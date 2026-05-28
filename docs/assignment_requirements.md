@@ -302,9 +302,8 @@ Go2 tournament suggested distribution:
 - 10% reproducibility: submitted configs, checkpoint, planner, results, and
   report can be rerun.
 
-Teams that complete both routes are eligible for bonus points. The default
-release assumption is up to 10 bonus points, with the exact cap and application
-left to the instructor.
+Teams that complete both routes are eligible for bonus. The exact bonus policy
+will be announced by the instructor.
 
 The bonus project is not graded only by fastest speed. A slower policy that
 stays upright and inside the track can be better than a brief sprint that falls
