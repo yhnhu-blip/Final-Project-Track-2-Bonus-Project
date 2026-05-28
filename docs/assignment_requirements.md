@@ -20,6 +20,22 @@ new part of this bonus project is the track-aware high-level control problem:
 using track coordinates and geometry to decide how the robot should move around
 the oval without leaving the lane.
 
+Track 2 can be used in three ways:
+
+- Proposal-based final project: continue from your final project proposal,
+  present in class, and submit a final report.
+- Go2 oval-track tournament: compete on this shared benchmark using the
+  evaluation pipeline in this repository.
+- Both: submit a proposal-based final project and a tournament entry for bonus
+  points.
+
+Read the release handout for the course-level choices, grading distribution,
+and tournament ranking rules:
+
+```text
+docs/track2_assignment_handout.md
+```
+
 ## 2. What Is Provided
 
 You are given:
@@ -32,6 +48,8 @@ You are given:
 - `train_highlevel_starter.py`, a small parameter-search scaffold.
 - A Colab notebook that installs dependencies, clones this repo, trains or
   restores a checkpoint, runs evaluation, and renders a video.
+- A release handout explaining proposal final project, tournament, and combined
+  submission routes.
 
 The starter planner is intentionally conservative and is not expected to solve
 the full project by itself.
@@ -162,6 +180,8 @@ black-box search, not analytic gradient descent through MuJoCo.
 The evaluator reports:
 
 - `lap_completion`: fraction of one 200 m lap completed.
+- `valid_distance_m`: distance traveled before the first fall or boundary
+  violation, computed as `200 * lap_completion`.
 - `finish_time`: time to complete one lap, or `null` if not completed.
 - `mean_progress_speed`: average speed along the centerline.
 - `rms_lateral_error`: RMS distance from the centerline.
@@ -174,6 +194,14 @@ The evaluator reports:
 
 The score rewards lap completion, speed, line keeping, stability, and
 efficiency. Completing more of the lap is the most important objective.
+
+Official tournament ranking uses these rules:
+
+- Completed full laps rank ahead of incomplete runs.
+- Completed laps are ordered by lower `finish_time`.
+- Incomplete runs are ordered by higher `valid_distance_m`.
+- Ties are broken by fewer failures, larger boundary margin, lower lateral
+  error, lower foot slip, and lower energy proxy.
 
 ## 8. Deliverables
 
@@ -191,12 +219,18 @@ Your `submission.json` should include:
 ```json
 {
   "team_name": "your_team_name",
+  "track2_option": "tournament",
   "checkpoint_dir": "best_checkpoint",
   "planner": "planner_config.json",
   "training_steps": 15000000,
+  "evaluation_command": "python run_track_bonus.py --checkpoint-dir best_checkpoint --planner-config planner_config.json --output-dir track_eval",
   "notes": "Brief summary of your method"
 }
 ```
+
+Use `"track2_option": "proposal_final_project"` if you are submitting only a
+proposal-based final project, and `"track2_option": "both"` if you are also
+entering the tournament.
 
 ## 9. Short Report Requirements
 
@@ -209,8 +243,8 @@ Your report should answer:
 4. Is your high-level controller hand-designed, searched, supervised, or RL
    trained?
 5. How does your controller avoid leaving the track?
-6. What are your final `lap_completion`, `finish_time`, lateral error, fall,
-   energy, and slip metrics?
+6. What are your final `lap_completion`, `valid_distance_m`, `finish_time`,
+   lateral error, fall, energy, and slip metrics?
 7. What failed idea did you try, and what did you learn?
 8. What extra localization would be needed for a real robot to use this track
    coordinate controller?
@@ -226,17 +260,33 @@ Your report should answer:
 7. Repeat evaluation and compare metrics.
 8. Save final artifacts and write the report.
 
-## 11. Grading Rubric
+## 11. Grading And Ranking
 
-Suggested grading:
+Track 2 has a final-project-like grading distribution. Students can choose a
+proposal-based final project, the Go2 oval-track tournament, or both.
 
-- 35% lap performance: lap completion, finish time, and progress speed.
-- 20% track safety: boundary margin, lateral error, and avoiding lane exit.
-- 15% locomotion stability: no fall, smooth gait, robust turning.
-- 10% efficiency: energy and foot slip proxies.
-- 10% method quality: clear control design, justified training choices.
+Proposal-based final project suggested distribution:
+
+- 20% proposal alignment and problem framing.
+- 30% technical implementation.
+- 25% experiments, evaluation, and evidence.
+- 10% class presentation or demo.
+- 15% final report quality and reproducibility.
+
+Go2 tournament suggested distribution:
+
+- 45% official benchmark performance and leaderboard rank.
+- 20% technical method quality: low-level training, high-level controller,
+  curriculum, and design justification.
+- 15% evaluation analysis: videos, failure cases, ablations, and metric
+  interpretation.
+- 10% class presentation or demo.
 - 10% reproducibility: submitted configs, checkpoint, planner, results, and
   report can be rerun.
+
+Teams that complete both routes are eligible for bonus points. The default
+release assumption is up to 10 bonus points, with the exact cap and application
+left to the instructor.
 
 The bonus project is not graded only by fastest speed. A slower policy that
 stays upright and inside the track can be better than a brief sprint that falls

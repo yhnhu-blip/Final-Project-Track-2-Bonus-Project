@@ -69,6 +69,7 @@ def compute_track_bonus_metrics(rollout: dict[str, Any], track: StandardOvalTrac
 
     return {
         "lap_completion": float(progress_m / track.length_m),
+        "valid_distance_m": progress_m,
         "finish_time": None if finish_idx is None else float((finish_idx + 1) * dt),
         "mean_progress_speed": float(progress_m / max(alive_time, 1e-6)),
         "alive_time": float(alive_time),

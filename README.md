@@ -18,6 +18,22 @@ low-level policy:
 The starter high-level planner is intentionally weak. It is only an interface
 example so students can run the benchmark and then improve it.
 
+## Track 2 Work Modes
+
+Students may choose one of three routes:
+
+- Proposal-based final project: execute the project from the earlier proposal,
+  present it in class, and submit a final report.
+- Go2 oval-track tournament: submit a low-level checkpoint plus high-level
+  controller and compete on the shared 200 m track benchmark.
+- Both: complete a proposal-based final project and also enter the tournament
+  for bonus points.
+
+Tournament ranking is based first on completing a full lap without leaving the
+track. Completed laps are ranked by `finish_time`; incomplete runs are ranked
+by `valid_distance_m`, the distance traveled before the first fall or boundary
+violation.
+
 ## Important
 
 This repo does not include a trained solution checkpoint, a successful planner,
@@ -48,12 +64,19 @@ Read the full assignment requirements before changing code:
 
 ```text
 docs/assignment_requirements.md
+docs/track2_assignment_handout.md
 ```
 
 For how the high-level planner can be optimized, read:
 
 ```text
 docs/high_level_optimization_guide.md
+```
+
+For instructor-side release checks, see:
+
+```text
+docs/instructor_release_checklist.md
 ```
 
 ## Low-Level Training
@@ -123,6 +146,7 @@ its reward signal. It does not backpropagate through MuJoCo.
 The benchmark reports:
 
 - `lap_completion`
+- `valid_distance_m`
 - `finish_time`
 - `mean_progress_speed`
 - `rms_lateral_error`
@@ -142,6 +166,7 @@ track_bonus/planner.py
 run_track_bonus.py
 train_highlevel_starter.py
 docs/assignment_requirements.md
+docs/track2_assignment_handout.md
 docs/high_level_optimization_guide.md
 ```
 

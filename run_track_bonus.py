@@ -252,8 +252,9 @@ def main() -> None:
         command=result["command"],
     )
     (output_dir / "leaderboard.csv").write_text(
-        "rank,name,composite_score,lap_completion,finish_time,mean_progress_speed,fall,boundary_violation,rms_lateral_error,max_lateral_error\n"
+        "rank,name,composite_score,lap_completion,valid_distance_m,finish_time,mean_progress_speed,fall,boundary_violation,rms_lateral_error,max_lateral_error\n"
         f"1,starter,{scores['composite_score']},{metrics['lap_completion']},"
+        f"{metrics['valid_distance_m']},"
         f"{'' if metrics['finish_time'] is None else metrics['finish_time']},{metrics['mean_progress_speed']},"
         f"{metrics['fall']},{metrics['boundary_violation']},{metrics['rms_lateral_error']},{metrics['max_lateral_error']}\n",
         encoding="utf-8",

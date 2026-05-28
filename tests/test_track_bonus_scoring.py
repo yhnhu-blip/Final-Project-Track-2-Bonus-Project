@@ -34,8 +34,12 @@ def _synthetic_rollout(track: StandardOvalTrack, progress_end: float, *, lateral
 
 def test_completed_rollout_scores_above_partial_rollout() -> None:
     track = StandardOvalTrack()
-    complete = score_track_bonus(compute_track_bonus_metrics(_synthetic_rollout(track, 205.0), track))
-    partial = score_track_bonus(compute_track_bonus_metrics(_synthetic_rollout(track, 60.0), track))
+    complete_metrics = compute_track_bonus_metrics(_synthetic_rollout(track, 205.0), track)
+    partial_metrics = compute_track_bonus_metrics(_synthetic_rollout(track, 60.0), track)
+    complete = score_track_bonus(complete_metrics)
+    partial = score_track_bonus(partial_metrics)
+    assert complete_metrics["valid_distance_m"] == track.length_m
+    assert 59.0 < partial_metrics["valid_distance_m"] < 61.0
     assert complete["composite_score"] > partial["composite_score"]
 
 

@@ -53,6 +53,7 @@ from `track_eval/results.json`.
 That score is built from:
 
 - lap completion
+- valid distance before fall or boundary violation
 - progress speed
 - line keeping
 - fall / boundary violation
@@ -158,6 +159,8 @@ Use `results.json`:
 
 - If `lap_completion` is low: speed is too low, high-level steering is poor, or
   low-level command tracking is weak.
+- If `valid_distance_m` is low: the tournament run ended early or made little
+  progress before timeout.
 - If `fall` is true: commands are too aggressive or low-level stability is not
   good enough.
 - If `boundary_violation` is true: high-level line keeping is poor, or yaw
