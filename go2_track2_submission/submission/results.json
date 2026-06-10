@@ -1,0 +1,42 @@
+{
+  "challenge": "track_bonus",
+  "entry_name": "starter",
+  "checkpoint_dir": "/content/drive/MyDrive/Final-Project-Track-2-Bonus-Project-main-xynzx/artifacts/run_fastv2/best_checkpoint",
+  "planner_config": "/content/drive/MyDrive/Final-Project-Track-2-Bonus-Project-main-xynzx/artifacts/v2/cem/best_planner_config.json",
+  "official_track": {
+    "track_length_m": 200.0,
+    "turn_radius_m": 18.25,
+    "half_width_m": 2.0
+  },
+  "metrics": {
+    "lap_completion": 1.0,
+    "valid_distance_m": 200.0,
+    "finish_time": 79.18,
+    "mean_progress_speed": 2.525890376357666,
+    "alive_time": 79.18,
+    "fall": false,
+    "fall_step": null,
+    "boundary_violation": false,
+    "boundary_violation_step": null,
+    "rms_lateral_error": 0.13361620598608237,
+    "max_lateral_error": 0.385998706087796,
+    "min_boundary_margin_m": 1.614001293912204,
+    "energy_proxy": 30.623275756835938,
+    "foot_slip_proxy": 2.575637102127075,
+    "total_time": 300.0,
+    "num_steps": 15000
+  },
+  "scores": {
+    "completion_score": 1.0,
+    "speed_score": 1.0,
+    "line_keeping_score": 1.0,
+    "stability_score": 1.0,
+    "efficiency_score": 0.23313606880806587,
+    "composite_score": 0.9616568034404034
+  },
+  "artifacts": {
+    "leaderboard_csv": "/content/drive/MyDrive/Final-Project-Track-2-Bonus-Project-main-xynzx/artifacts/v2/final_eval/leaderboard.csv",
+    "rollouts_npz": "/content/drive/MyDrive/Final-Project-Track-2-Bonus-Project-main-xynzx/artifacts/v2/final_eval/race_rollouts.npz",
+    "video_path": null
+  }
+}
